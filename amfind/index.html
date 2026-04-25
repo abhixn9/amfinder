@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AM — UI Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1/index.js"></script>
+  </head>
+  <body class="is-locked">
+    <a class="sr-only sr-only-focusable" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand" aria-label="AM home" style="font-size: 20px; gap: 4px;">
+          <span class="brand-mark" aria-hidden="true" style="color: #ffb6c1; animation: pulse 1s infinite alternate;">A</span>
+          <span class="brand-m" style="position: relative; width: 34px; height: 34px; display: inline-flex; justify-content: center; align-items: center; font-size: 42px; color: var(--accent); line-height: 1;">
+            ♥
+            <span style="position: absolute; color: white; font-size: 14px; margin-top: -4px;">M</span>
+          </span>
+        </div>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link is-active" href="#discover">Discover</a>
+          <a class="nav-link" href="#matches">Matches</a>
+          <a class="nav-link" href="#messages">Messages</a>
+          <a class="nav-link" href="#register">Register</a>
+          <a class="nav-link" href="#profile">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-light-pink" type="button" id="myProfileBtn">My profile</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero view-discover" id="heroSection" aria-label="Hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Dating, simplified</p>
+            <h1 class="hero-title">Find your person</h1>
+            <p class="hero-subtext">
+              AM helps you discover compatible people nearby—then suggests a great first message when
+              you’re ready to say hi.
+            </p>
+            <div class="howitworks" id="howItWorksBar" hidden aria-live="polite">
+              <div class="howitworks-title">How AM works</div>
+              <div class="howitworks-body">
+                1) Sign up with Email + Mobile, then create User ID + Password. 2) Discover profiles and tap Like to
+                create a match. 3) Use Matches to view who you liked. 4) Use Messages to chat (send & receive). 5)
+                Free likes are limited—upgrade Premium to like more.
+              </div>
+            </div>
+            <div class="hero-cta">
+              <button class="btn btn-primary" type="button" id="getStartedBtn">Get started</button>
+              <button class="btn btn-secondary" type="button" id="howItWorksBtn">See how it works</button>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Preview card">
+            <div class="hero-card-top">
+              <div class="pill">
+                <span class="dot dot-pink" aria-hidden="true"></span>
+                <span>Match Preview</span>
+              </div>
+              <span class="muted">Today</span>
+            </div>
+
+            <div class="preview-row">
+              <div class="avatar avatar-lg bg-rose" aria-hidden="true">🌸</div>
+              <div class="preview-meta">
+                <div class="preview-name">Avery, 27</div>
+                <div class="preview-sub">San Diego • 4.2 mi • Verified</div>
+              </div>
+            </div>
+
+            <div class="tags" aria-label="Interests">
+              <span class="tag">Coffee</span>
+              <span class="tag">Hiking</span>
+              <span class="tag">Indie films</span>
+            </div>
+
+            <div class="preview-actions">
+              <button class="btn btn-small btn-ghost" type="button">Skip</button>
+              <button class="btn btn-small btn-primary" type="button">Like</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section view-discover" id="statsSection" aria-label="Stats">
+        <div class="container stats">
+          <article class="metric-card">
+            <div class="metric-value">2.4M</div>
+            <div class="metric-label">Active members</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-value">87%</div>
+            <div class="metric-label">Match accuracy</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-value">142K</div>
+            <div class="metric-label">Couples formed</div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-value">4.8★</div>
+            <div class="metric-label">App rating</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section view-discover" id="newMatchesSection" aria-label="New matches">
+        <div class="container">
+          <div class="banner" role="status" aria-live="polite">
+            <div class="banner-left">
+              <span class="banner-icon" aria-hidden="true">🎉</span>
+              <div class="banner-text">
+                <div class="banner-title">3 new matches today!</div>
+                <div class="banner-sub">Your best connections are waiting.</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary" type="button" id="viewMatchesBtn">View matches</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section view-discover" id="discover" aria-label="Discover profiles">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Discover</h2>
+              <p class="section-sub">Tap Like to generate an opening message you can send.</p>
+            </div>
+            <div class="inline-note" id="activeFilterNote" aria-live="polite"></div>
+          </div>
+
+          <div class="chips" role="toolbar" aria-label="Filters">
+            <button class="chip is-active" type="button" data-filter="all">All</button>
+            <button class="chip" type="button" data-filter="age_18_25">18–25</button>
+            <button class="chip" type="button" data-filter="age_26_35">26–35</button>
+            <button class="chip" type="button" data-filter="age_36_plus">36+</button>
+            <button class="chip" type="button" data-filter="nearby">Nearby</button>
+            <button class="chip" type="button" data-filter="verified">Verified</button>
+          </div>
+
+          <div class="grid" id="profilesGrid" aria-label="Profile cards"></div>
+
+          <section class="composer" aria-label="Generated message">
+            <div class="composer-head">
+              <div class="composer-title">Generated opener</div>
+              <div class="composer-meta" id="composerMeta">Like a profile to generate a message.</div>
+            </div>
+            <div class="composer-body">
+              <textarea
+                id="generatedMessage"
+                class="textarea"
+                rows="3"
+                placeholder="Your generated opening message will appear here…"
+              ></textarea>
+              <div class="composer-actions">
+                <button class="btn btn-ghost" type="button" id="copyMessageBtn">Copy</button>
+                <button class="btn btn-primary" type="button" id="clearMessageBtn">Clear</button>
+              </div>
+            </div>
+          </section>
+          <div style="text-align: center; margin-top: 32px; padding-bottom: 16px; color: #ffb6c1; font-weight: bold; font-size: 14px;">
+            Created by KARAMALA ABHIRAM VIKASH
+          </div>
+        </div>
+      </section>
+
+      <section class="section subtle view-screen" id="matches" aria-label="Matches">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Matches</h2>
+              <p class="section-sub">People you’ve liked show up here.</p>
+            </div>
+            <div class="inline-note" id="matchesLikesNote" aria-live="polite"></div>
+          </div>
+          <div class="grid" id="matchesGrid" aria-label="Matches list"></div>
+        </div>
+      </section>
+
+      <section class="section subtle view-screen" id="messages" aria-label="Messages">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Messages</h2>
+              <p class="section-sub">Send and receive messages with your matches (mock chat).</p>
+            </div>
+          </div>
+
+          <div class="messages-shell" aria-label="Messages shell">
+            <div class="thread-list" aria-label="Threads">
+              <div class="thread-list-head">Threads</div>
+              <div class="thread-list-body" id="threadsList"></div>
+            </div>
+            <div class="chat" aria-label="Chat">
+              <div class="chat-head" id="chatHead">Select a match to chat</div>
+              <div class="chat-body" id="chatBody"></div>
+              <form class="chat-compose" id="chatComposeForm" style="flex-direction: column; position: relative;">
+                <div class="emoji-bar" id="chatEmojiBar" style="display:flex; gap:8px; padding-bottom: 8px; border-bottom: var(--border-hairline); margin-bottom: 4px;">
+                  <button type="button" class="btn-ghost" data-emoji="😊" style="font-size:20px; cursor:pointer; border:none;">😊</button>
+                  <button type="button" class="btn-ghost" data-emoji="😂" style="font-size:20px; cursor:pointer; border:none;">😂</button>
+                  <button type="button" class="btn-ghost" data-emoji="❤️" style="font-size:20px; cursor:pointer; border:none;">❤️</button>
+                  <button type="button" class="btn-ghost" data-emoji="🔥" style="font-size:20px; cursor:pointer; border:none;">🔥</button>
+                  <button type="button" class="btn-ghost" data-emoji="👍" style="font-size:20px; cursor:pointer; border:none;">👍</button>
+                  <button type="button" class="btn-ghost" id="allEmojisToggleBtn" style="font-size:20px; cursor:pointer; border:none;" title="All Emojis">➕</button>
+                </div>
+                <div id="fullEmojiPickerContainer" style="position: absolute; bottom: 100%; right: 0; z-index: 100; margin-bottom: 8px;" hidden>
+                  <emoji-picker class="dark"></emoji-picker>
+                </div>
+                <div style="display:flex; gap:10px; width:100%;">
+                  <input class="input" id="chatInput" placeholder="Type a message…" style="flex:1;" />
+                  <button class="btn btn-primary" type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section subtle view-screen" id="profile" aria-label="Profile">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">My profile</h2>
+              <p class="section-sub">Your account details and usage.</p>
+            </div>
+          </div>
+
+          <div class="profile-grid">
+            <div class="metric-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 10px;">
+              <div id="profileAvatarContainer"></div>
+              <div style="font-weight: 800; color: #ffb6c1; font-size: 15px;">
+                🔥 Streak: <span id="profileStreak">0</span> days
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="profile-bars">
+                <div class="bar">
+                  <div class="bar-label">User ID</div>
+                  <div class="bar-value" id="profileUserId">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Account type</div>
+                  <div class="bar-value" id="profileRole">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Hobbies</div>
+                  <div class="bar-value" id="profileHobbies">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Sports</div>
+                  <div class="bar-value" id="profileSports">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="profile-bars">
+                <div class="bar">
+                  <div class="bar-label">Email</div>
+                  <div class="bar-value" id="profileEmail">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Mobile</div>
+                  <div class="bar-value" id="profileMobile">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Join Date</div>
+                  <div class="bar-value" id="profileJoinDate">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Plan</div>
+              <div class="metric-value" id="profilePlan">—</div>
+              <div class="metric-label" style="margin-top:10px">Premium subscription</div>
+              <div class="metric-value" style="font-size:14px; margin-top:8px;">
+                <div class="plan-row">
+                  <button class="btn btn-small btn-secondary" type="button" data-premium-plan="1">Buy $49 / month</button>
+                  <button class="btn btn-small btn-secondary" type="button" data-premium-plan="3">Buy $299 / 3 months</button>
+                  <button class="btn btn-small btn-secondary" type="button" data-premium-plan="6">Buy $699 / 6 months</button>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="profile-bars">
+                <div class="bar" style="flex-direction: column; align-items: flex-start; gap: 12px; border: none; padding: 0;">
+                  <div class="bar-label" style="font-size: 16px; font-weight: 800; color: var(--accent);">Select Avatar</div>
+                  <div class="chips" id="avatarSelector" role="toolbar" aria-label="Avatars" style="margin-top: 8px;">
+                <button class="chip chip-medium" type="button" data-avatar="ai" style="font-size: 16px;">AI</button>
+                <button class="chip chip-medium" type="button" data-avatar="image" style="font-size: 14px;">Photos</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦄">🦄</button>
+                <button class="chip chip-medium" type="button" data-avatar="🧛‍♂️">🧛‍♂️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🧜‍♀️">🧜‍♀️</button>
+                <button class="chip chip-medium" type="button" data-avatar="👻">👻</button>
+                <button class="chip chip-medium" type="button" data-avatar="🤖">🤖</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦸‍♂️">🦸‍♂️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦹‍♀️">🦹‍♀️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🧙‍♂️">🧙‍♂️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🧚‍♀️">🧚‍♀️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🧝‍♀️">🧝‍♀️</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦁">🦁</button>
+                <button class="chip chip-medium" type="button" data-avatar="🐼">🐼</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦊">🦊</button>
+                <button class="chip chip-medium" type="button" data-avatar="🦖">🦖</button>
+                  </div>
+                </div>
+              </div>
+              <input type="file" id="avatarUploadInput" accept="image/*" hidden />
+            </div>
+          </div>
+
+          <div class="form-actions" style="margin-top:14px">
+            <button class="btn btn-secondary" type="button" id="editDetailsBtn">Edit my details</button>
+            <button class="btn btn-light-pink" type="button" id="openReportBtn">Report</button>
+            <button class="btn btn-primary" type="button" id="logoutBtn">Logout</button>
+          </div>
+
+          <section class="report-box" id="reportBar" hidden aria-label="Report bar" style="margin-top:12px">
+            <div class="report-title">Report scam / fake ID / money scam</div>
+            <div class="help" style="margin-bottom:10px">
+              Enter your query below. This is a mock report submission.
+            </div>
+            <form class="form" id="reportForm">
+              <div class="field">
+                <label class="label" for="reportDetails">Message</label>
+                <textarea
+                  class="textarea"
+                  id="reportDetails"
+                  rows="4"
+                  placeholder="Type your query or complaint here..."
+                ></textarea>
+              </div>
+              <div class="form-actions split">
+                <button class="btn btn-ghost" type="button" id="closeReportBtn">Close</button>
+                <button class="btn btn-secondary" type="submit">Submit report</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="admin-panel" id="adminPanel" hidden aria-label="Admin panel">
+            <div class="section-head" style="margin-top:16px">
+              <div>
+                <h2 class="section-title">Admin panel</h2>
+                <p class="section-sub">Admins can view and modify app data (mock).</p>
+              </div>
+            </div>
+            <div class="composer">
+              <div class="composer-head">
+                <div class="composer-title">Profiles JSON</div>
+                <div class="composer-meta">Edit and apply to update Discover/Matches (in-memory).</div>
+              </div>
+              <div class="composer-body">
+                <textarea id="adminProfilesJson" class="textarea" rows="8"></textarea>
+                <div class="composer-actions">
+                  <button class="btn btn-secondary" type="button" id="adminReloadJsonBtn">Reload</button>
+                  <button class="btn btn-primary" type="button" id="adminApplyJsonBtn">Apply changes</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section subtle view-screen" id="register" aria-label="Register details">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Register details</h2>
+              <p class="section-sub">Fill your details after account creation. Minimum 4 images, maximum 6.</p>
+            </div>
+          </div>
+
+          <section class="composer" aria-label="Register form">
+            <div class="composer-head">
+              <div class="composer-title">Your details</div>
+              <div class="composer-meta">You can edit later anytime.</div>
+            </div>
+            <div class="composer-body">
+              <form class="form" id="registerDetailsForm">
+                <div class="field">
+                  <label class="label" for="regFullName">Name</label>
+                  <input class="input" id="regFullName" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regAge">Age</label>
+                  <input class="input" id="regAge" inputmode="numeric" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regWorkPlace">Place of work</label>
+                  <input class="input" id="regWorkPlace" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regHomeTown">Hometown</label>
+                  <input class="input" id="regHomeTown" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regJobInfo">Job info</label>
+                  <input class="input" id="regJobInfo" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regFavFood">Favourite food</label>
+                  <input class="input" id="regFavFood" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regFavPlaces">Favourite places</label>
+                  <input class="input" id="regFavPlaces" placeholder="e.g., beaches, mountains, cafés" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regPreference">Preference</label>
+                  <select class="input" id="regPreference">
+                    <option value="go_with_flow">Go with flow</option>
+                    <option value="long_relationship">Long relationship</option>
+                    <option value="just_for_fun">Just for fun</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="label" for="regDreamPlace">Dream place</label>
+                  <input class="input" id="regDreamPlace" placeholder="Where do you dream to visit?" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regGender">Gender</label>
+                  <select class="input" id="regGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="label" for="regHobbies">Hobbies</label>
+                  <input class="input" id="regHobbies" placeholder="e.g., reading, gaming, cooking" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regSports">Sports</label>
+                  <input class="input" id="regSports" placeholder="e.g., basketball, tennis, swimming" />
+                </div>
+                <div class="field">
+                  <label class="label" for="regDrinking">Drinking habit</label>
+                  <select class="input" id="regDrinking">
+                    <option value="none">No drinking habit</option>
+                    <option value="rare">Rare occasions</option>
+                    <option value="regular">Regular</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="label" for="regImages">Profile images (4–6)</label>
+                  <input class="input" id="regImages" type="file" accept="image/*" multiple />
+                  <div class="help">Choose minimum 4 images. Max 6 images will be saved.</div>
+                  <div class="images-grid" id="regImagesGrid" aria-label="Selected images"></div>
+                </div>
+                <div class="form-actions">
+                  <button class="btn btn-primary" type="submit">Save & continue</button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span class="muted">AM UI mockup</span>
+        <span class="muted">Built for interaction + layout exploration</span>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Full Screen AM Animation Overlay -->
+    <div id="amOverlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s ease; opacity: 0; pointer-events: none;">
+      <div class="brand" style="font-size: 80px; font-weight: 800; letter-spacing: -0.02em; align-items: center; gap: 10px;">
+        <span class="brand-mark" style="width: 100px; height: 100px; color: #ffb6c1; background: var(--accent-soft); border-radius: 999px; display: grid; place-items: center; animation: pulse 1s infinite alternate;">A</span>
+        <span style="position: relative; width: 100px; height: 100px; display: inline-flex; justify-content: center; align-items: center; font-size: 124px; color: var(--accent); line-height: 1;">
+          ♥
+          <span style="position: absolute; color: white; font-size: 46px; margin-top: -8px;">M</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Other Profile Modal -->
+    <div class="modal" id="otherProfileModal" role="dialog" aria-modal="true" aria-labelledby="otherProfileTitle" hidden>
+      <div class="modal-card">
+        <div class="modal-head">
+          <div class="modal-title" id="otherProfileTitle">User Profile</div>
+          <button class="btn btn-ghost btn-small" type="button" id="otherProfileCloseBtn">Close</button>
+        </div>
+        <div class="modal-body" style="padding: 16px;">
+          <div class="profile-grid">
+            <div class="metric-card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 10px;">
+              <div id="otherProfileAvatarContainer"></div>
+              <div style="font-weight: 800; color: #ffb6c1; font-size: 15px;">
+                🔥 Streak: <span id="otherProfileStreak">0</span> days
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="profile-bars">
+                <div class="bar">
+                  <div class="bar-label">User ID</div>
+                  <div class="bar-value" id="otherProfileUserId">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Join Date</div>
+                  <div class="bar-value" id="otherProfileJoinDate">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Plan</div>
+              <div class="metric-value" id="otherProfilePlan">—</div>
+            </div>
+            <div class="metric-card">
+              <div class="profile-bars">
+                <div class="bar">
+                  <div class="bar-label">Drinking Habit</div>
+                  <div class="bar-value" id="otherProfileDrinking">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Preference</div>
+                  <div class="bar-value" id="otherProfilePreference">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Hobbies</div>
+                  <div class="bar-value" id="otherProfileHobbies">—</div>
+                </div>
+                <div class="bar">
+                  <div class="bar-label">Sports</div>
+                  <div class="bar-value" id="otherProfileSports">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login + Premium (mock) -->
+    <div class="modal-backdrop" id="authBackdrop" hidden></div>
+    <div
+      class="modal"
+      id="authModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="authTitle"
+      aria-describedby="authDesc"
+      hidden
+    >
+      <div class="modal-card">
+        <div class="modal-head">
+          <div>
+            <div class="modal-title" id="authTitle">Welcome</div>
+            <div class="modal-sub" id="authDesc">Sign up first (Email + Mobile), then create User ID + Password.</div>
+          </div>
+          <button class="btn btn-ghost btn-small" type="button" id="authCloseBtn">Close</button>
+        </div>
+
+        <div class="modal-body">
+          <form id="signupForm" class="form" autocomplete="on">
+            <div class="tabs" role="tablist" aria-label="Sign up steps">
+              <button class="tab is-active" type="button" role="tab" aria-selected="true" id="tabContact">
+                Email & Mobile
+              </button>
+              <button class="tab" type="button" role="tab" aria-selected="false" id="tabAccount" disabled>
+                Create account
+              </button>
+              <button class="tab" type="button" role="tab" aria-selected="false" id="tabReset">
+                Forgot password
+              </button>
+            </div>
+
+            <div id="panelContact">
+              <div class="field">
+                <label class="label" for="signupEmail">Email</label>
+                <input class="input" id="signupEmail" name="email" type="email" placeholder="name@example.com" />
+              </div>
+              <div class="field">
+                <label class="label" for="signupMobile">Mobile number</label>
+                <input
+                  class="input"
+                  id="signupMobile"
+                  name="mobile"
+                  inputmode="numeric"
+                  placeholder="10-digit mobile number"
+                />
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" type="button" id="signupNextBtn">Next</button>
+              </div>
+            </div>
+
+            <div id="panelAccount" hidden>
+              <div class="field">
+                <label class="label" for="signupUserId">Create User ID</label>
+                <input class="input" id="signupUserId" name="userId" placeholder="Create a user id" />
+              </div>
+              <div class="field">
+                <label class="label" for="signupRole">Account type</label>
+                <select class="input" id="signupRole" name="role">
+                  <option value="user" selected>User</option>
+                  <option value="admin">Admin</option>
+                </select>
+                <div class="help">Only Admins can access the Admin panel.</div>
+              </div>
+              <div class="field">
+                <label class="label" for="signupPassword">Create Password</label>
+                <input
+                  class="input"
+                  id="signupPassword"
+                  name="password"
+                  type="password"
+                  placeholder="Create a password"
+                />
+                <button class="link-mini" type="button" id="forgotPasswordBtn">Forgot password?</button>
+              </div>
+              <div class="form-actions split">
+                <button class="btn btn-secondary" type="button" id="signupBackBtn">Back</button>
+                <button class="btn btn-primary" type="submit">Create account</button>
+              </div>
+              <hr style="margin: 24px 0; border: none; border-top: 1px solid var(--border);" />
+              <div style="text-align: center; margin-bottom: 12px;">
+                <button class="link-mini" type="button" id="showLoginFieldsBtn" style="font-size: 14px; font-weight: bold;">Already have an account? Login directly</button>
+              </div>
+              <div id="loginFieldsContainer" hidden>
+                <div class="field">
+                  <input class="input" id="loginUserId" placeholder="User ID" />
+                </div>
+                <div class="field">
+                  <input class="input" id="loginPassword" type="password" placeholder="Password" />
+                </div>
+                <button class="btn btn-primary" type="button" id="loginBtn" style="width: 100%;">Login</button>
+              </div>
+            </div>
+
+            <div id="panelResetEmail" hidden>
+              <div class="field">
+                <label class="label" for="resetEmail">Enter your email</label>
+                <input class="input" id="resetEmail" type="email" placeholder="name@example.com" />
+              </div>
+              <div class="form-actions split">
+                <button class="btn btn-ghost" type="button" id="resetBackBtn">Back</button>
+                <button class="btn btn-primary" type="button" id="sendResetCodeBtn">Send code</button>
+              </div>
+            </div>
+
+            <div id="panelResetCode" hidden>
+              <div class="field">
+                <label class="label" for="resetCode">Verification code</label>
+                <input class="input" id="resetCode" inputmode="numeric" placeholder="Enter verification code" />
+                <div class="help" id="resetHelp">Enter the code sent to your email (mock).</div>
+              </div>
+              <div class="form-actions split">
+                <button class="btn btn-ghost" type="button" id="resetEmailTabBtn">Use different email</button>
+                <button class="btn btn-primary" type="button" id="verifyResetCodeBtn">Verify</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="premiumBackdrop" hidden></div>
+    <div
+      class="modal"
+      id="premiumModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="premiumTitle"
+      aria-describedby="premiumDesc"
+      hidden
+    >
+      <div class="modal-card">
+        <div class="modal-head">
+          <div>
+            <div class="modal-title" id="premiumTitle">Premium required</div>
+            <div class="modal-sub" id="premiumDesc">
+              You’ve reached the free limit (10 likes). Upgrade to like more accounts.
+            </div>
+          </div>
+          <button class="btn btn-ghost btn-small" type="button" id="premiumCloseBtn">Close</button>
+        </div>
+        <div class="modal-body">
+          <div class="paywall">
+            <div class="paywall-card">
+              <div class="paywall-price" id="paymentPlanTitle">Premium</div>
+              <div class="paywall-sub">Enter ATM card details to activate (mock).</div>
+            </div>
+
+            <form class="form" id="paymentForm">
+              <div class="field">
+                <label class="label" for="cardNumber">ATM card number</label>
+                <input class="input" id="cardNumber" inputmode="numeric" placeholder="16-digit card number" />
+              </div>
+              <div class="field">
+                <label class="label" for="cardExpiry">Expiry date</label>
+                <input class="input" id="cardExpiry" placeholder="MM/YY" />
+              </div>
+              <div class="field">
+                <label class="label" for="cardCvv">CVV</label>
+                <input class="input" id="cardCvv" inputmode="numeric" placeholder="3-digit CVV" />
+              </div>
+              <div class="form-actions split">
+                <button class="btn btn-ghost" type="button" id="paymentCancelBtn">Cancel</button>
+                <button class="btn btn-primary" type="submit" id="paymentPayBtn">Pay</button>
+              </div>
+              <div class="help" id="paymentStatus" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="heartOverlay" class="heart-overlay" hidden>
+      <div class="heart-half heart-left"></div>
+      <div class="heart-half heart-right"></div>
+    </div>
+    
+
+    <script src="./app.js"></script>
+  </body>
+</html>
